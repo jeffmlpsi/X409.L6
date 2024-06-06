@@ -16,11 +16,6 @@ jobs:
         run: docker build -t ghar .
       - name: Save docker file
         run: docker image save ghar > img/ghar.tar
-      - name: Archive buid artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ghar.tar
-          path: img/ghar.tar
       - name: Upload to dockerhub
         env:
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -28,4 +23,9 @@ jobs:
           docker login --username drinesucsc -p $DOCKERHUB_TOKEN
           docker tag ghar drinesucsc/ghar1
           docker push drinesucsc/ghar1
+      - name: Archive buid artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ghar.tar
+          path: img/ghar.tar
 	  
