@@ -18,7 +18,7 @@ jobs:
         run: docker image save ghar > img/ghar.tar
       - name: Upload to dockerhub
         env:
-          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          DOCKERHUB_TOKEN: ${{ secrets.SECONDHUBTOKEN }}
         run: |
           docker login --username drinesucsc -p $DOCKERHUB_TOKEN
           docker tag ghar drinesucsc/ghar1
