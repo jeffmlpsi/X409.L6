@@ -24,7 +24,7 @@ jobs:
       - name: Upload to dockerhub
         env:
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-        run: |
+          run: |
           docker login --username drinesucsc -p $DOCKERHUB_TOKEN
           docker tag ghar drinesucsc/ghar1
           docker push drinesucsc/ghar1
